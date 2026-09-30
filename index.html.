@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Harmonic Moments Crafts</title>
+<meta name="description" content="Harmonic Moments Crafts: curated finds checked across major retailers, plus custom mugs, tees, hoodies, and tumblers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F5F4F1; --surface:#FFFFFF; --ink:#22202A; --muted:#5E5A66; --line:#E2DED8;
+  --plum:#5B2A4E; --plum-soft:#EFE4EC; --brass:#A8732E;
+  --display:"Young Serif", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17151B; --surface:#211E26; --ink:#EDEAF0; --muted:#A7A1AE; --line:#34303A;
+    --plum:#D9A6C8; --plum-soft:#34222F; --brass:#DDAA66; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17151B; --surface:#211E26; --ink:#EDEAF0; --muted:#A7A1AE; --line:#34303A;
+  --plum:#D9A6C8; --plum-soft:#34222F; --brass:#DDAA66; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:20px}
+.wrap{max-width:1040px;margin:0 auto}
+a{color:var(--plum)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:22px;border-bottom:1px solid var(--line)}
+.brand{font-family:var(--display);font-size:1.35rem;color:var(--ink);text-decoration:none}
+.brand span{color:var(--plum)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;padding-block:64px 56px}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:700;color:var(--brass)}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;margin:.4em 0 .5em;text-wrap:balance}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.1rem);line-height:1.2;margin:0 0 .4em;text-wrap:balance}
+h3{font-size:1.1rem;margin:0 0 .35em;font-weight:700}
+.lede{color:var(--muted);font-size:1.1rem;max-width:34em}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.95rem}
+.btn.primary{background:var(--plum);color:var(--bg)}
+.btn.ghost{border:1px solid var(--line);color:var(--ink)}
+.checklist{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.checklist h3{font-family:var(--display);font-weight:400;font-size:1.25rem}
+.checklist ol{margin:12px 0 0;padding-left:1.2em;display:grid;gap:10px;color:var(--muted)}
+.checklist li::marker{color:var(--plum);font-weight:700}
+.checklist strong{color:var(--ink)}
+section{padding-block:56px;border-top:1px solid var(--line)}
+.sub{color:var(--muted);max-width:40em;margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.guide{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.tag{align-self:flex-start;background:var(--plum-soft);color:var(--plum);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.guide p{color:var(--muted);margin:0;font-size:.95rem}
+.guide ul{margin:4px 0 0;padding-left:1.1em;color:var(--muted);font-size:.93rem}
+.guide .soon{margin-top:auto;padding-top:10px;font-size:.85rem;color:var(--brass);font-weight:600}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.merch{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+.merch div{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:var(--surface)}
+.merch b{display:block}
+.merch small{color:var(--muted)}
+.disclosure{background:var(--plum-soft);border-radius:12px;padding:22px 24px}
+.disclosure p{margin:.4em 0 0}
+footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:820px){
+  .hero,.two{grid-template-columns:1fr;gap:32px}
+  .grid{grid-template-columns:1fr}
+  .hero{padding-block:40px}
+}
+@media (max-width:420px){.merch{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top">Harmonic Moments <span>Crafts</span></a>
+    <nav aria-label="Main">
+      <a href="#guides">Buying guides</a>
+      <a href="#how">How we pick</a>
+      <a href="#merch">Custom merch</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Curated finds · Custom merch</div>
+        <h1>Useful things, checked across stores before we recommend them.</h1>
+        <p class="lede">Harmonic Moments Crafts is a small curated shop. We follow what's trending, compare it against the major retailers, and only feature products that hold up on price, reviews, and return policy.</p>
+        <div class="cta">
+          <a class="btn primary" href="#guides">Browse the guides</a>
+          <a class="btn ghost" href="#merch">Order custom merch</a>
+        </div>
+      </div>
+      <aside class="checklist" aria-label="Our five-point check">
+        <h3>Our five-point check</h3>
+        <ol>
+          <li><strong>Trending for a reason.</strong> Steady demand, not a one-week spike.</li>
+          <li><strong>Price compared.</strong> Checked against Amazon, Walmart, Target, and Best Buy.</li>
+          <li><strong>Reviews read, not counted.</strong> We look at the 2 and 3 star reviews first.</li>
+          <li><strong>Easy returns.</strong> If returning it is a hassle, we skip it.</li>
+          <li><strong>Would we buy it?</strong> If not, it doesn't go on the site.</li>
+        </ol>
+      </aside>
+    </div>
+
+    <section id="guides">
+      <div class="eyebrow">Buying guides</div>
+      <h2>Start with what you actually need</h2>
+      <p class="sub">Short guides that explain what matters in each category, so you can shop with a clear head. Product picks are added as we finish testing and comparing.</p>
+      <div class="grid">
+        <article class="guide">
+          <span class="tag">Home</span>
+          <h3>Setting up a calmer bedroom</h3>
+          <p>Light, sound, and air make the biggest difference to sleep. Here's where to spend first.</p>
+          <ul>
+            <li>Warm, dimmable lighting under 3000K</li>
+            <li>Blackout curtains sized past the frame</li>
+            <li>A quiet diffuser or white noise machine</li>
+          </ul>
+          <span class="soon">Picks being compared</span>
+        </article>
+        <article class="guide">
+          <span class="tag">Tech</span>
+          <h3>Everyday tech under $50</h3>
+          <p>Small upgrades that fix daily annoyances: dead phones, tangled cables, weak audio.</p>
+          <ul>
+            <li>Multi-device charging stations</li>
+            <li>Wireless earbuds with a real warranty</li>
+            <li>Cable organizers for desk and car</li>
+          </ul>
+          <span class="soon">Picks being compared</span>
+        </article>
+        <article class="guide">
+          <span class="tag">Fitness</span>
+          <h3>A home workout kit that fits a closet</h3>
+          <p>You don't need a garage gym. A few versatile pieces cover strength, mobility, and cardio.</p>
+          <ul>
+            <li>Resistance band sets with door anchors</li>
+            <li>An adjustable jump rope</li>
+            <li>A thick, non-slip mat</li>
+          </ul>
+          <span class="soon">Picks being compared</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="two">
+        <div>
+          <div class="eyebrow">How we pick</div>
+          <h2>Trending, then tested against the big stores</h2>
+          <p class="sub" style="margin-bottom:0">We don't grab the first link we find. Each product starts on a trend list, then gets compared across the major retailers for price, shipping, and return terms. If a better deal exists somewhere else, we say so. Prices change often, so always confirm the current price on the retailer's page before you buy.</p>
+        </div>
+        <div class="disclosure" role="note" aria-label="Affiliate disclosure">
+          <h3>Affiliate disclosure</h3>
+          <p>Harmonic Moments Crafts is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.</p>
+          <p><strong>As an Amazon Associate, we earn from qualifying purchases.</strong> This costs you nothing extra and never changes what we recommend.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="merch">
+      <div class="two">
+        <div>
+          <div class="eyebrow">Custom merch</div>
+          <h2>Your moment, made to keep</h2>
+          <p class="sub">Send a photo, a date, a phrase, or an idea, and we'll design something around it. Good for family events, graduations, teams, teachers, and gifts.</p>
+        </div>
+        <div class="merch">
+          <div><b>Mugs</b><small>Photos, names, and dates</small></div>
+          <div><b>T-shirts</b><small>Single or group orders</small></div>
+          <div><b>Sweatshirts &amp; hoodies</b><small>Custom designs for any season</small></div>
+          <div><b>Tumblers</b><small>Names, photos, and phrases</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="eyebrow">About</div>
+      <h2>Meet the maker</h2>
+      <p class="sub">Harmonic Moments Crafts starts with Sam. She's a school teacher with a real gift for making things by hand: mugs, t-shirts, sweatshirts, hoodies, and tumblers built around the moments people have captured and want to hold on to. A graduation photo, a family reunion, a first day of school, an inside joke. You bring the moment, and Sam turns it into something you can wear, sip from, or give away.</p>
+      <p class="sub" style="margin-bottom:0">Her husband Will runs the curated deals side. He compares every featured product across the major retailers before it goes on the site, so the picks here are worth your money.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Harmonic Moments Crafts. All rights reserved.</span>
+    <span>As an Amazon Associate, we earn from qualifying purchases.</span>
+  </footer>
+</div>
+</body>
+</html>
