@@ -1,199 +1,399 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Harmonic Moments Crafts</title>
-<meta name="description" content="Harmonic Moments Crafts: curated finds checked across major retailers, plus custom mugs, tees, hoodies, and tumblers.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;600;700&display=swap">
+<meta name="description" content="Harmonic Moments Crafts: custom shirts, sweatshirts, mugs, tumblers and more, handmade by Sam. Plus seasonal Amazon picks.">
 <style>
-:root{
-  --bg:#F5F4F1; --surface:#FFFFFF; --ink:#22202A; --muted:#5E5A66; --line:#E2DED8;
-  --plum:#5B2A4E; --plum-soft:#EFE4EC; --brass:#A8732E;
-  --display:"Young Serif", Georgia, serif;
-  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
-  color-scheme:light;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#17151B; --surface:#211E26; --ink:#EDEAF0; --muted:#A7A1AE; --line:#34303A;
-    --plum:#D9A6C8; --plum-soft:#34222F; --brass:#DDAA66; color-scheme:dark;
+  :root {
+    --purple: #7C3AED;
+    --pink: #EC4899;
+    --orange: #F97316;
+    --yellow: #FBBF24;
+    --teal: #14B8A6;
+    --dark: #0F0A1E;
+    --card-bg: #1A1035;
+    --text: #F1F0FF;
+    --muted: #A89EC9;
   }
-}
-:root[data-theme="dark"]{
-  --bg:#17151B; --surface:#211E26; --ink:#EDEAF0; --muted:#A7A1AE; --line:#34303A;
-  --plum:#D9A6C8; --plum-soft:#34222F; --brass:#DDAA66; color-scheme:dark;
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;padding-inline:20px}
-.wrap{max-width:1040px;margin:0 auto}
-a{color:var(--plum)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
-header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:22px;border-bottom:1px solid var(--line)}
-.brand{font-family:var(--display);font-size:1.35rem;color:var(--ink);text-decoration:none}
-.brand span{color:var(--plum)}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem}
-nav a:hover{color:var(--ink)}
-.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center;padding-block:64px 56px}
-.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:700;color:var(--brass)}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;margin:.4em 0 .5em;text-wrap:balance}
-h2{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,3.4vw,2.1rem);line-height:1.2;margin:0 0 .4em;text-wrap:balance}
-h3{font-size:1.1rem;margin:0 0 .35em;font-weight:700}
-.lede{color:var(--muted);font-size:1.1rem;max-width:34em}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.btn{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.95rem}
-.btn.primary{background:var(--plum);color:var(--bg)}
-.btn.ghost{border:1px solid var(--line);color:var(--ink)}
-.checklist{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
-.checklist h3{font-family:var(--display);font-weight:400;font-size:1.25rem}
-.checklist ol{margin:12px 0 0;padding-left:1.2em;display:grid;gap:10px;color:var(--muted)}
-.checklist li::marker{color:var(--plum);font-weight:700}
-.checklist strong{color:var(--ink)}
-section{padding-block:56px;border-top:1px solid var(--line)}
-.sub{color:var(--muted);max-width:40em;margin:0 0 28px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.guide{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:8px}
-.tag{align-self:flex-start;background:var(--plum-soft);color:var(--plum);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
-.guide p{color:var(--muted);margin:0;font-size:.95rem}
-.guide ul{margin:4px 0 0;padding-left:1.1em;color:var(--muted);font-size:.93rem}
-.guide .soon{margin-top:auto;padding-top:10px;font-size:.85rem;color:var(--brass);font-weight:600}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.merch{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
-.merch div{border:1px solid var(--line);border-radius:10px;padding:14px 16px;background:var(--surface)}
-.merch b{display:block}
-.merch small{color:var(--muted)}
-.disclosure{background:var(--plum-soft);border-radius:12px;padding:22px 24px}
-.disclosure p{margin:.4em 0 0}
-footer{border-top:1px solid var(--line);padding-block:28px 40px;color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-@media (max-width:820px){
-  .hero,.two{grid-template-columns:1fr;gap:32px}
-  .grid{grid-template-columns:1fr}
-  .hero{padding-block:40px}
-}
-@media (max-width:420px){.merch{grid-template-columns:1fr}}
+  * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+  body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--text); }
+
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(15,10,30,0.95); backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2rem; border-bottom: 1px solid rgba(124,58,237,0.3);
+  }
+  .logo { font-size: 1.5rem; font-weight: 900; background: linear-gradient(90deg, var(--purple), var(--pink), var(--orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .nav-links { display: flex; gap: 0.5rem; list-style: none; align-items: center; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; padding: 0.4rem 1rem; border-radius: 50px; transition: all 0.3s; }
+  .nav-links a:hover { color: white; background: rgba(124,58,237,0.3); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 25px; height: 3px; background: var(--text); border-radius: 3px; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 6rem 2rem 4rem;
+    background: radial-gradient(ellipse at 20% 50%, rgba(124,58,237,0.3) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(236,72,153,0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 60% 80%, rgba(249,115,22,0.15) 0%, transparent 60%);
+  }
+  .hero-badge { background: linear-gradient(90deg, var(--purple), var(--pink)); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; display: inline-block; }
+  .hero h1 { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1rem; }
+  .hero h1 span { background: linear-gradient(90deg, var(--pink), var(--orange), var(--yellow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 1.2rem; color: var(--muted); max-width: 580px; margin-bottom: 2.5rem; line-height: 1.7; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .btn { padding: 0.85rem 2rem; border-radius: 50px; font-weight: 700; font-size: 1rem; cursor: pointer; text-decoration: none; border: none; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-primary { background: linear-gradient(90deg, var(--purple), var(--pink)); color: white; }
+  .btn-outline { background: transparent; color: var(--text); border: 2px solid var(--purple); }
+  .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(124,58,237,0.4); }
+
+  /* SHARED */
+  .section-wrap { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+  .section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--pink); margin-bottom: 0.5rem; }
+  .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 1rem; }
+  .section-sub { color: var(--muted); max-width: 580px; line-height: 1.7; margin-bottom: 3rem; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(124,58,237,0.4), transparent); margin: 0 2rem; }
+
+  /* MERCH GALLERY */
+  .merch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+  .merch-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; border: 1px solid rgba(124,58,237,0.2); transition: transform 0.3s, box-shadow 0.3s; }
+  .merch-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(124,58,237,0.25); }
+  .merch-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+  .merch-info { padding: 1.2rem; }
+  .merch-info h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .merch-info p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.8rem; }
+  .merch-price { color: var(--yellow); font-weight: 700; font-size: 1rem; }
+
+  .merch-media { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+  .mm1 { background: linear-gradient(135deg,#7C3AED,#EC4899); } .mm2 { background: linear-gradient(135deg,#F97316,#FBBF24); }
+  .mm3 { background: linear-gradient(135deg,#14B8A6,#3B82F6); } .mm4 { background: linear-gradient(135deg,#EC4899,#F97316); }
+  .ig-strip { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; background: var(--card-bg); border: 1px solid rgba(124,58,237,0.25); border-radius: 16px; padding: 1.25rem 1.5rem; margin-bottom: 4rem; }
+  .ig-strip p { color: var(--muted); }
+  .ig-strip strong { color: var(--text); }
+
+  /* ORDER OPTIONS */
+  .order-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+  .order-card { background: var(--card-bg); border-radius: 16px; padding: 1.75rem; border: 1px solid rgba(124,58,237,0.25); display: flex; flex-direction: column; gap: 0.6rem; }
+  .order-card .oc-icon { font-size: 2.2rem; }
+  .order-card h3 { font-size: 1.15rem; }
+  .order-card p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; flex: 1; }
+  .order-card .btn { text-align: center; margin-top: 0.5rem; }
+  .order-steps { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+  .order-steps strong { color: var(--text); }
+
+  /* PRICING */
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 4rem; }
+  .price-card { background: var(--card-bg); border-radius: 16px; padding: 1.5rem; text-align: center; border: 1px solid rgba(124,58,237,0.2); transition: transform 0.3s; }
+  .price-card:hover { transform: translateY(-4px); }
+  .price-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+  .price-card h3 { font-weight: 700; margin-bottom: 0.5rem; }
+  .from { color: var(--muted); font-size: 0.8rem; }
+  .amount { font-size: 1.5rem; font-weight: 900; color: var(--yellow); }
+
+  /* FORM */
+  .form-wrap { background: var(--card-bg); border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(124,58,237,0.25); max-width: 700px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+  .form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,0.06); border: 1px solid rgba(124,58,237,0.3); border-radius: 10px; padding: 0.75rem 1rem; color: var(--text); font-size: 0.95rem; outline: none; transition: border-color 0.3s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--pink); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-group select option { background: var(--dark); }
+  .upload-label { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 1.5rem; border: 2px dashed rgba(124,58,237,0.4); border-radius: 10px; cursor: pointer; transition: border-color 0.3s; text-align: center; }
+  .upload-label:hover { border-color: var(--pink); }
+  .upload-label span { color: var(--muted); font-size: 0.85rem; }
+  .upload-label input { display: none; }
+  .submit-btn { width: 100%; padding: 1rem; border-radius: 50px; border: none; background: linear-gradient(90deg, var(--purple), var(--pink)); color: white; font-size: 1rem; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(236,72,153,0.4); }
+  .success-msg { display: none; background: linear-gradient(90deg, var(--teal), var(--purple)); padding: 1rem; border-radius: 10px; text-align: center; font-weight: 700; margin-top: 1rem; }
+
+  /* AMAZON DEALS */
+  .deals-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .deals-head .section-sub { margin-bottom: 0; }
+  .season-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(251,191,36,0.12); color: var(--yellow); border: 1px solid rgba(251,191,36,0.35); padding: 0.45rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.85rem; white-space: nowrap; }
+  .deal-filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .deal-filter { background: transparent; color: var(--muted); border: 1px solid rgba(124,58,237,0.35); padding: 0.4rem 1rem; border-radius: 50px; font-weight: 600; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+  .deal-filter:hover { color: white; border-color: var(--pink); }
+  .deal-filter.active { background: linear-gradient(90deg, var(--purple), var(--pink)); color: white; border-color: transparent; }
+  .deals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+  .deal-card { background: var(--card-bg); border-radius: 16px; border: 1px solid rgba(124,58,237,0.2); display: flex; flex-direction: column; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+  .deal-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(124,58,237,0.25); }
+  .deal-media { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3.2rem; background: linear-gradient(135deg, rgba(124,58,237,0.35), rgba(236,72,153,0.25)); position: relative; }
+  .deal-media img { width: 100%; height: 100%; object-fit: contain; background: #fff; padding: 0.75rem; }
+  .deal-tag { position: absolute; top: 0.75rem; left: 0.75rem; background: rgba(15,10,30,0.85); color: var(--yellow); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 50px; }
+  .deal-badge { position: absolute; bottom: 0.75rem; left: 0.75rem; background: linear-gradient(90deg, var(--teal), #22C55E); color: #06261C; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 50px; }
+  .deal-body { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+  .deal-body h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.3; }
+  .deal-body p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+  .deal-btn { margin-top: auto; display: block; text-align: center; padding: 0.7rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; text-decoration: none; background: linear-gradient(90deg, var(--orange), var(--yellow)); color: var(--dark); transition: transform 0.2s, box-shadow 0.2s; }
+  .deal-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(249,115,22,0.35); }
+  .deal-btn.soon { background: rgba(255,255,255,0.06); color: var(--muted); border: 1px dashed rgba(124,58,237,0.4); pointer-events: none; }
+  .deals-note { background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.3); border-radius: 12px; padding: 1rem 1.25rem; color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+  .deals-note strong { color: var(--text); }
+
+  /* CONTACT */
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .social-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+  .social-link { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.5rem; background: var(--card-bg); border-radius: 12px; text-decoration: none; color: var(--text); border: 1px solid rgba(124,58,237,0.2); transition: transform 0.3s, border-color 0.3s; }
+  .social-link:hover { transform: translateX(6px); border-color: var(--pink); }
+  .social-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .ig { background: linear-gradient(135deg, #833AB4, #FD1D1D, #F77737); }
+  .fb { background: #1877F2; }
+  .em { background: linear-gradient(135deg, var(--purple), var(--teal)); }
+  .social-link span { font-weight: 600; overflow-wrap: anywhere; min-width: 0; }
+  #contact .btn, #contact .submit-btn { overflow-wrap: anywhere; }
+  .contact-wrap > * { min-width: 0; }
+
+  /* FOOTER */
+  footer { background: rgba(0,0,0,0.4); padding: 2rem; text-align: center; border-top: 1px solid rgba(124,58,237,0.2); }
+  .logo-foot { font-size: 1.2rem; display: block; margin-bottom: 0.8rem; font-weight: 900; background: linear-gradient(90deg, var(--purple), var(--pink), var(--orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  footer p { color: var(--muted); font-size: 0.8rem; }
+
+  @media(max-width: 768px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: var(--dark); padding: 1rem 2rem; }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-wrap { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <a class="brand" href="#top">Harmonic Moments <span>Crafts</span></a>
-    <nav aria-label="Main">
-      <a href="#guides">Buying guides</a>
-      <a href="#how">How we pick</a>
-      <a href="#merch">Custom merch</a>
-      <a href="#about">About</a>
-    </nav>
-  </header>
 
-  <main id="top">
-    <div class="hero">
-      <div>
-        <div class="eyebrow">Curated finds · Custom merch</div>
-        <h1>Useful things, checked across stores before we recommend them.</h1>
-        <p class="lede">Harmonic Moments Crafts is a small curated shop. We follow what's trending, compare it against the major retailers, and only feature products that hold up on price, reviews, and return policy.</p>
-        <div class="cta">
-          <a class="btn primary" href="#guides">Browse the guides</a>
-          <a class="btn ghost" href="#merch">Order custom merch</a>
-        </div>
-      </div>
-      <aside class="checklist" aria-label="Our five-point check">
-        <h3>Our five-point check</h3>
-        <ol>
-          <li><strong>Trending for a reason.</strong> Steady demand, not a one-week spike.</li>
-          <li><strong>Price compared.</strong> Checked against Amazon, Walmart, Target, and Best Buy.</li>
-          <li><strong>Reviews read, not counted.</strong> We look at the 2 and 3 star reviews first.</li>
-          <li><strong>Easy returns.</strong> If returning it is a hassle, we skip it.</li>
-          <li><strong>Would we buy it?</strong> If not, it doesn't go on the site.</li>
-        </ol>
-      </aside>
-    </div>
+<!-- NAV -->
+<nav>
+  <div class="logo">Harmonic Moments Crafts</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#gallery">Our Work</a></li>
+    <li><a href="#order">Order</a></li>
+    <li><a href="#deals">Deals</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
 
-    <section id="guides">
-      <div class="eyebrow">Buying guides</div>
-      <h2>Start with what you actually need</h2>
-      <p class="sub">Short guides that explain what matters in each category, so you can shop with a clear head. Product picks are added as we finish testing and comparing.</p>
-      <div class="grid">
-        <article class="guide">
-          <span class="tag">Home</span>
-          <h3>Setting up a calmer bedroom</h3>
-          <p>Light, sound, and air make the biggest difference to sleep. Here's where to spend first.</p>
-          <ul>
-            <li>Warm, dimmable lighting under 3000K</li>
-            <li>Blackout curtains sized past the frame</li>
-            <li>A quiet diffuser or white noise machine</li>
-          </ul>
-          <span class="soon">Picks being compared</span>
-        </article>
-        <article class="guide">
-          <span class="tag">Tech</span>
-          <h3>Everyday tech under $50</h3>
-          <p>Small upgrades that fix daily annoyances: dead phones, tangled cables, weak audio.</p>
-          <ul>
-            <li>Multi-device charging stations</li>
-            <li>Wireless earbuds with a real warranty</li>
-            <li>Cable organizers for desk and car</li>
-          </ul>
-          <span class="soon">Picks being compared</span>
-        </article>
-        <article class="guide">
-          <span class="tag">Fitness</span>
-          <h3>A home workout kit that fits a closet</h3>
-          <p>You don't need a garage gym. A few versatile pieces cover strength, mobility, and cardio.</p>
-          <ul>
-            <li>Resistance band sets with door anchors</li>
-            <li>An adjustable jump rope</li>
-            <li>A thick, non-slip mat</li>
-          </ul>
-          <span class="soon">Picks being compared</span>
-        </article>
-      </div>
-    </section>
-
-    <section id="how">
-      <div class="two">
-        <div>
-          <div class="eyebrow">How we pick</div>
-          <h2>Trending, then tested against the big stores</h2>
-          <p class="sub" style="margin-bottom:0">We don't grab the first link we find. Each product starts on a trend list, then gets compared across the major retailers for price, shipping, and return terms. If a better deal exists somewhere else, we say so. Prices change often, so always confirm the current price on the retailer's page before you buy.</p>
-        </div>
-        <div class="disclosure" role="note" aria-label="Affiliate disclosure">
-          <h3>Affiliate disclosure</h3>
-          <p>Harmonic Moments Crafts is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com.</p>
-          <p><strong>As an Amazon Associate, we earn from qualifying purchases.</strong> This costs you nothing extra and never changes what we recommend.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="merch">
-      <div class="two">
-        <div>
-          <div class="eyebrow">Custom merch</div>
-          <h2>Your moment, made to keep</h2>
-          <p class="sub">Send a photo, a date, a phrase, or an idea, and we'll design something around it. Good for family events, graduations, teams, teachers, and gifts.</p>
-        </div>
-        <div class="merch">
-          <div><b>Mugs</b><small>Photos, names, and dates</small></div>
-          <div><b>T-shirts</b><small>Single or group orders</small></div>
-          <div><b>Sweatshirts &amp; hoodies</b><small>Custom designs for any season</small></div>
-          <div><b>Tumblers</b><small>Names, photos, and phrases</small></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="eyebrow">About</div>
-      <h2>Meet the maker</h2>
-      <p class="sub">Harmonic Moments Crafts starts with Sam. She's a school teacher with a real gift for making things by hand: mugs, t-shirts, sweatshirts, hoodies, and tumblers built around the moments people have captured and want to hold on to. A graduation photo, a family reunion, a first day of school, an inside joke. You bring the moment, and Sam turns it into something you can wear, sip from, or give away.</p>
-      <p class="sub" style="margin-bottom:0">Her husband Will runs the curated deals side. He compares every featured product across the major retailers before it goes on the site, so the picks here are worth your money.</p>
-    </section>
-  </main>
-
-  <footer>
-    <span>© 2026 Harmonic Moments Crafts. All rights reserved.</span>
-    <span>As an Amazon Associate, we earn from qualifying purchases.</span>
-  </footer>
+<!-- HERO -->
+<div id="home" class="hero">
+  <div class="hero-badge">✦ Personalized Just For You ✦</div>
+  <h1>Custom Merch<br><span>Made With Love</span></h1>
+  <p>Shirts, sweatshirts, mugs, tumblers and more, customized with your names, photos, and designs. One-of-a-kind pieces for every occasion.</p>
+  <div class="hero-btns">
+    <a href="#order" class="btn btn-primary">🎨 Place an Order</a>
+    <a href="#gallery" class="btn btn-outline">📸 See Our Work</a>
+  </div>
 </div>
+
+<div class="divider"></div>
+
+<!-- GALLERY -->
+<div class="section-wrap" id="gallery">
+  <div class="section-label">✦ Our Work</div>
+  <h2 class="section-title">Custom Merch Gallery</h2>
+  <p class="section-sub">Every item is custom-made with care. Here's a look at the kinds of pieces we create.</p>
+  <div class="merch-grid">
+    <div class="merch-card">
+      <div class="merch-media mm1" aria-hidden="true">👕</div>
+      <div class="merch-info"><h3>Custom Shirts</h3><p>Names, phrases, and full-color designs for family events, teams, and holidays.</p><div class="merch-price">Starting at $25</div></div>
+    </div>
+    <div class="merch-card">
+      <div class="merch-media mm2" aria-hidden="true">🧥</div>
+      <div class="merch-info"><h3>Sweatshirts &amp; Hoodies</h3><p>Cozy custom pieces for moms, grads, birthdays, and every season.</p><div class="merch-price">Starting at $25</div></div>
+    </div>
+    <div class="merch-card">
+      <div class="merch-media mm3" aria-hidden="true">☕</div>
+      <div class="merch-info"><h3>Custom Mugs</h3><p>Photo mugs, quote mugs, and name mugs that make easy gifts.</p><div class="merch-price">Starting at $15</div></div>
+    </div>
+    <div class="merch-card">
+      <div class="merch-media mm4" aria-hidden="true">🥤</div>
+      <div class="merch-info"><h3>Custom Tumblers</h3><p>Personalized tumblers for gifts, teachers, and teams.</p><div class="merch-price">Starting at $30</div></div>
+    </div>
+  </div>
+  <div class="ig-strip">
+    <p><strong>See Sam's latest work on Instagram.</strong> New pieces get posted there first.</p>
+    <a href="https://www.instagram.com/harmonicmoments_crafts/" class="btn btn-primary" target="_blank" rel="noopener">📸 @harmonicmoments_crafts</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PRICING -->
+<div class="section-wrap">
+  <div class="section-label">✦ Pricing</div>
+  <h2 class="section-title">Simple Pricing</h2>
+  <div class="pricing-grid">
+    <div class="price-card"><div class="price-icon">🧢</div><h3>Hats</h3><div class="from">Starting at</div><div class="amount">$20</div></div>
+    <div class="price-card"><div class="price-icon">👕</div><h3>Shirts</h3><div class="from">Starting at</div><div class="amount">$25</div></div>
+    <div class="price-card"><div class="price-icon">☕</div><h3>Mugs</h3><div class="from">Starting at</div><div class="amount">$15</div></div>
+    <div class="price-card"><div class="price-icon">🥤</div><h3>Tumblers</h3><div class="from">Starting at</div><div class="amount">$30</div></div>
+    <div class="price-card"><div class="price-icon">🎁</div><h3>Other Items</h3><div class="from">Starting at</div><div class="amount">$10</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ORDER FORM -->
+<div class="section-wrap" id="order">
+  <div class="section-label">✦ Get Started</div>
+  <h2 class="section-title">Place a Custom Order</h2>
+  <p class="section-sub">Tell us what you have in mind and Sam will follow up with a quote and design ideas.</p>
+  <div class="order-grid">
+    <div class="order-card">
+      <div class="oc-icon">👕</div>
+      <h3>Custom Shirt Inquiry</h3>
+      <p>Shirts, sweatshirts, and hoodies. Single pieces or group orders for families, teams, and events.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdufsjBsB3qzmXyvlqu54cL_HVZMNLemhJIRSoFo26y8_yDIQ/viewform" class="btn btn-primary" target="_blank" rel="noopener">Start a Shirt Order</a>
+    </div>
+    <div class="order-card">
+      <div class="oc-icon">🎨</div>
+      <h3>Custom Craft Inquiry</h3>
+      <p>Mugs, tumblers, and other custom crafts. Send your names, photos, dates, or ideas.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdo_qCX8o9nQDsUrPHPna_soUR6v6itgiQK5dVqYd1dkJic7w/viewform" class="btn btn-primary" target="_blank" rel="noopener">Start a Craft Order</a>
+    </div>
+    <div class="order-card">
+      <div class="oc-icon">📝</div>
+      <h3>Order Contract</h3>
+      <p>Already talked details with Sam? Fill out the order contract to lock in your order.</p>
+      <a href="https://forms.gle/x5UhUGwuLVrmAz9E8" class="btn btn-outline" target="_blank" rel="noopener">Complete the Contract</a>
+    </div>
+  </div>
+  <p class="order-steps"><strong>How it works:</strong> send an inquiry, get a quote and design proof, then sign the order contract and we get to work.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- AMAZON DEALS
+     To post a deal: edit the DEALS list in the <script> at the bottom of this file.
+     Paste your Amazon affiliate link (SiteStripe "Text" link) into `link`. -->
+<div class="section-wrap" id="deals">
+  <div class="deals-head">
+    <div>
+      <div class="section-label">✦ Seasonal Picks</div>
+      <h2 class="section-title">Amazing Amazon Deals for the Season and More</h2>
+      <p class="section-sub">We do the scrolling so you don't have to. Every pick here is something we'd happily bring home ourselves, backed by what real customers keep raving about in their reviews. As the seasons change, so does this list, along with our personal top picks in tech, home improvement, and more. Check back often for our latest favorites.</p>
+    </div>
+    <div class="season-pill" id="seasonPill">🍂 Fall Favorites</div>
+  </div>
+
+  <div class="deal-filters" id="dealFilters" role="group" aria-label="Filter deals"></div>
+  <div class="deals-grid" id="dealsGrid"></div>
+
+  <div class="deals-note" role="note">
+    <strong>As an Amazon Associate, we earn from qualifying purchases.</strong> Links in this section are affiliate links. It costs you nothing extra and never changes what we pick. Prices and availability change often, so check the current price on Amazon before you buy.
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<div class="section-wrap" id="contact">
+  <div class="section-label">✦ Connect With Us</div>
+  <h2 class="section-title">Get In Touch</h2>
+  <div class="contact-wrap">
+    <div>
+      <p class="section-sub">We'd love to hear from you! Follow along for new work, or reach out for custom orders, questions, or collabs.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/harmonicmoments_crafts/" class="social-link" target="_blank" rel="noopener"><div class="social-icon ig">📸</div><span>@harmonicmoments_crafts</span></a>
+        <a href="https://www.facebook.com/harmonicmomentscrafts" class="social-link" target="_blank" rel="noopener"><div class="social-icon fb">👍</div><span>Harmonic Moments Crafts</span></a>
+        <a href="mailto:harmonicmomentscrafts@gmail.com" class="social-link"><div class="social-icon em">✉️</div><span>harmonicmomentscrafts@gmail.com</span></a>
+        <a href="https://linktr.ee/harmonicmomentscrafts" class="social-link" target="_blank" rel="noopener"><div class="social-icon em">🔗</div><span>linktr.ee/harmonicmomentscrafts</span></a>
+      </div>
+    </div>
+    <div style="background:var(--card-bg);border-radius:20px;padding:2rem;border:1px solid rgba(124,58,237,0.25);">
+      <h3 style="margin-bottom:0.75rem;font-size:1.3rem;">Send a Quick Message</h3>
+      <p class="section-sub" style="margin-bottom:1.5rem;">Message us on social or send an email. We usually reply within a day.</p>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <a href="https://ig.me/m/harmonicmoments_crafts" class="submit-btn" style="text-align:center;text-decoration:none;" target="_blank" rel="noopener">📸 Message on Instagram</a>
+        <a href="https://m.me/harmonicmomentscrafts" class="btn btn-outline" style="text-align:center;" target="_blank" rel="noopener">💬 Message on Facebook</a>
+        <a href="mailto:harmonicmomentscrafts@gmail.com" class="btn btn-outline" style="text-align:center;">✉️ Email Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="logo-foot">Harmonic Moments Crafts</span>
+  <p style="margin-bottom:0.5rem;">Custom merch made with love 🎨</p>
+  <p style="margin-bottom:0.5rem;">As an Amazon Associate, we earn from qualifying purchases.</p>
+  <p>© 2026 Harmonic Moments Crafts. All rights reserved.</p>
+</footer>
+
+<script>
+  /* =========================================================
+     SEASONAL AMAZON DEALS: edit this block to update the section
+     ---------------------------------------------------------
+     SEASON  : label shown in the pill at the top right
+     DEALS   : one { } per product
+       title    product name (keep it short)
+       category used for the filter buttons (Home, Tech, Gifts...)
+       blurb    one line on why it's worth it
+       emoji    shown when there's no image
+       image    optional: SiteStripe "Image" URL; leave "" to use the emoji
+       badge    optional highlight pill, e.g. "⚡ Energy Saver"
+       link     your Amazon affiliate link; leave "" and the card shows "Coming soon"
+     ========================================================= */
+  const SEASON = "🍂 Fall Favorites";
+
+  const DEALS = [
+    { title: "Fall Comforter Set (Queen, 7-Piece)", category: "Home", blurb: "Warm terracotta tones with comforter, sheets, and shams in one bag. A quick fall refresh for the bedroom.", emoji: "🛏️", image: "", link: "https://www.amazon.com/dp/B0D5R56GCQ?tag=08132203-20" },
+    { title: "Joomer Orange & Purple Halloween Lights", category: "Seasonal", blurb: "100 feet of orange and purple LEDs with multiple modes. Wraps a porch, bushes, or a whole railing.", emoji: "🎃", image: "", link: "https://www.amazon.com/dp/B08XX3R4VM?tag=08132203-20" },
+    { title: "Halloween Coffee Mug", category: "Kitchen", blurb: "Big 20 oz orange mug with black cats and ghosts. Fun for spooky season and a reviewer favorite.", emoji: "☕", image: "", link: "https://www.amazon.com/dp/B0GYXXNKDN?tag=08132203-20" },
+    { title: "Crock-Pot 7-Quart Slow Cooker", category: "Kitchen", blurb: "Simple dials, feeds a crowd, and a longtime reviewer favorite. Soup and chili season is here.", emoji: "🍲", image: "", link: "https://www.amazon.com/dp/B003OAJGJO?tag=08132203-20" },
+    { title: "Anker MagGo 3-in-1 Charging Station", category: "Tech", blurb: "Charges iPhone, Apple Watch, and AirPods in one spot. Folds up for travel.", emoji: "🔌", image: "", link: "https://www.amazon.com/dp/B0DDQ71B9P?tag=08132203-20" },
+    { title: "Samsung Galaxy Buds 4 Pro", category: "Tech", blurb: "Samsung's newest Pro earbuds with strong noise canceling and Galaxy AI features. Best match for Galaxy phones.", emoji: "🎧", image: "", link: "https://www.amazon.com/dp/B0G1PJLWLZ?tag=08132203-20" },
+    { title: "EGO Power+ 650 CFM Leaf Blower", category: "Home Improvement", blurb: "Cordless power that keeps up with gas, battery and charger included. Built for fall cleanup.", emoji: "🍂", image: "", link: "https://www.amazon.com/dp/B087RRLLQ3?tag=08132203-20" },
+    { title: "Duck Window Insulation Kit (10 Windows)", category: "Home Improvement", badge: "⚡ Energy Saver", blurb: "Clear shrink film that seals drafty windows for winter. Blocks cold air and helps lower heating bills, then peels off in spring.", emoji: "🪟", image: "", link: "https://www.amazon.com/dp/B09JM8DCYL?tag=08132203-20" },
+    { title: "Ring Battery Doorbell 2K", category: "Home Improvement", blurb: "Newest Ring model with sharper 2K video. No wiring needed, an easy weekend install.", emoji: "🔔", image: "", link: "https://www.amazon.com/dp/B0FHJ7TKZM?tag=08132203-20" },
+    { title: "Aoretic LED Garage Lights (2-Pack)", category: "Home Improvement", blurb: "Screws into a standard bulb socket and turns a dim garage or shed into a workspace.", emoji: "💡", image: "", link: "https://www.amazon.com/dp/B0HCK7VGQ5?tag=08132203-20" },
+    { title: "No-Drill Drywall TV Mount (22-55\")", category: "Our Picks", blurb: "Bought it, love it. Hangs a TV on drywall without hunting for studs or drilling big holes, perfect for renters and quick room setups.", emoji: "📺", image: "", link: "https://www.amazon.com/dp/B0BLCM73B1?tag=08132203-20" },
+    { title: "PREXISO 2-in-1 Stud Finder + Laser Level", category: "Our Picks", blurb: "Will's go-to for TV and shelf mounts. Finds the stud, then lasers a level line right on the wall. Rechargeable, and we use it every time something goes up.", emoji: "📐", image: "", link: "https://www.amazon.com/dp/B0DBQBWCFT?tag=08132203-20" },
+    { title: "Yankee Candle Spiced Pumpkin", category: "Seasonal", blurb: "22 oz large jar with a classic pumpkin and spice scent that makes the house feel like fall.", emoji: "🕯️", image: "", link: "https://www.amazon.com/dp/B0F3DRTCB2?tag=08132203-20" },
+    { title: "Halloween Costume Picks", category: "Seasonal", blurb: "Last-minute costumes for kids and adults, with fast shipping options.", emoji: "👻", image: "", link: "https://www.amazon.com/s?k=halloween+costumes&tag=08132203-20" },
+    { title: "Teacher Gift Ideas", category: "Gifts", blurb: "Small, useful thank-yous teachers actually want.", emoji: "🍎", image: "", link: "https://www.amazon.com/s?k=teacher+appreciation+gifts&tag=08132203-20" },
+    { title: "Holiday Gifts Under $30", category: "Gifts", blurb: "Get ahead of the rush with well-reviewed picks that won't break the budget.", emoji: "🎁", image: "", link: "https://www.amazon.com/s?k=gifts+under+30&tag=08132203-20" }
+  ];
+
+  (function renderDeals() {
+    const grid = document.getElementById('dealsGrid');
+    const filters = document.getElementById('dealFilters');
+    document.getElementById('seasonPill').textContent = SEASON;
+
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function card(d) {
+      const media = d.image
+        ? `<img src="${esc(d.image)}" alt="${esc(d.title)}" loading="lazy">`
+        : esc(d.emoji || '🛍️');
+      const btn = d.link
+        ? `<a class="deal-btn" href="${esc(d.link)}" target="_blank" rel="sponsored nofollow noopener">View on Amazon →</a>`
+        : `<span class="deal-btn soon">Pick coming soon</span>`;
+      return `<article class="deal-card"><div class="deal-media"><span class="deal-tag">${esc(d.category)}</span>${d.badge ? `<span class="deal-badge">${esc(d.badge)}</span>` : ''}${media}</div>
+        <div class="deal-body"><h3>${esc(d.title)}</h3><p>${esc(d.blurb)}</p>${btn}</div></article>`;
+    }
+
+    function show(cat) {
+      const list = cat === 'All' ? DEALS : DEALS.filter(d => d.category === cat);
+      grid.innerHTML = list.map(card).join('');
+      filters.querySelectorAll('.deal-filter').forEach(b => {
+        const on = b.dataset.cat === cat;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on);
+      });
+    }
+
+    const cats = ['All', ...new Set(DEALS.map(d => d.category))];
+    filters.innerHTML = cats.map(c => `<button type="button" class="deal-filter" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+    filters.addEventListener('click', e => { const b = e.target.closest('.deal-filter'); if (b) show(b.dataset.cat); });
+    show('All');
+  })();
+
+</script>
 </body>
 </html>
