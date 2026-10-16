@@ -75,6 +75,17 @@
   .ig-strip p { color: var(--muted); }
   .ig-strip strong { color: var(--text); }
 
+  /* PHOTO GALLERY */
+  .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+  .work-card { background: var(--card-bg); border-radius: 16px; overflow: hidden; border: 1px solid rgba(124,58,237,0.2); transition: transform 0.3s, box-shadow 0.3s; margin: 0; }
+  .work-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(124,58,237,0.25); }
+  .work-card img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: #fff; }
+  .work-card figcaption { padding: 1rem 1.1rem 1.2rem; }
+  .work-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pink); margin-bottom: 0.35rem; }
+  .work-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .work-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
+  @media (max-width: 520px) { .work-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; } .work-card figcaption { padding: 0.7rem; } .work-card p { display: none; } .work-card h3 { font-size: 0.92rem; } }
+
   /* ORDER OPTIONS */
   .order-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
   .order-card { background: var(--card-bg); border-radius: 16px; padding: 1.75rem; border: 1px solid rgba(124,58,237,0.25); display: flex; flex-direction: column; gap: 0.6rem; }
@@ -196,24 +207,56 @@
 <div class="section-wrap" id="gallery">
   <div class="section-label">✦ Our Work</div>
   <h2 class="section-title">Custom Merch Gallery</h2>
-  <p class="section-sub">Every item is custom-made with care. Here's a look at the kinds of pieces we create.</p>
-  <div class="merch-grid">
-    <div class="merch-card">
-      <div class="merch-media mm1" aria-hidden="true">👕</div>
-      <div class="merch-info"><h3>Custom Shirts</h3><p>Names, phrases, and full-color designs for family events, teams, and holidays.</p><div class="merch-price">Starting at $25</div></div>
-    </div>
-    <div class="merch-card">
-      <div class="merch-media mm2" aria-hidden="true">🧥</div>
-      <div class="merch-info"><h3>Sweatshirts &amp; Hoodies</h3><p>Cozy custom pieces for moms, grads, birthdays, and every season.</p><div class="merch-price">Starting at $25</div></div>
-    </div>
-    <div class="merch-card">
-      <div class="merch-media mm3" aria-hidden="true">☕</div>
-      <div class="merch-info"><h3>Custom Mugs</h3><p>Photo mugs, quote mugs, and name mugs that make easy gifts.</p><div class="merch-price">Starting at $15</div></div>
-    </div>
-    <div class="merch-card">
-      <div class="merch-media mm4" aria-hidden="true">🥤</div>
-      <div class="merch-info"><h3>Custom Tumblers</h3><p>Personalized tumblers for gifts, teachers, and teams.</p><div class="merch-price">Starting at $30</div></div>
-    </div>
+  <p class="section-sub">Every piece here was designed and made by hand by Sam for a real customer. Names, inside jokes, milestones, team colors: tell her what the moment is and she'll make something you can wear, gift, or sip from.</p>
+  <div class="work-grid">
+    <figure class="work-card">
+      <img src="images/birthday-family-set.jpg" alt="Birthday Ninja Family Set, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Group Orders</span><h3>Birthday Ninja Family Set</h3><p>Matching tees for the whole family, from the birthday kid to Mom and Dad.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/big-little-sister-tees.jpg" alt="Big Sister and Little Sister, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Shirts</span><h3>Big Sister &amp; Little Sister</h3><p>Coordinating sibling tees for announcements and family photos.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/wild-one-parent-tees.jpg" alt="Mommy and Daddy of the Wild One, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Shirts</span><h3>Mommy &amp; Daddy of the Wild One</h3><p>Full-color parent shirts to match a first-birthday theme.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/holiday-mom-sweatshirt.jpg" alt="Holiday MOM Sweatshirt, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Sweatshirts</span><h3>Holiday MOM Sweatshirt</h3><p>A cozy seasonal crewneck with a festive full-color design.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/dance-teacher-gift-set.jpg" alt="Dance Teacher Gift Set, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Gifts</span><h3>Dance Teacher Gift Set</h3><p>A personalized bottle and zip pouch made as a thank-you gift.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/tiny-human-tamer-mug.jpg" alt="Tiny Human Tamer Mug, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Mugs</span><h3>Tiny Human Tamer Mug</h3><p>A wraparound teacher mug with a matching keychain.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/tiny-human-tamer-keychains.jpg" alt="Keychains for the Whole Staff, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Gifts</span><h3>Keychains for the Whole Staff</h3><p>Matching keychains in several shapes, made in bulk for groups.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/full-color-art-tees.jpg" alt="Full-Color Art Tees, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Shirts</span><h3>Full-Color Art Tees</h3><p>Detailed dragon and snake designs printed in rich, full color.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/wrestling-sister-hoodie.jpg" alt="Wrestling Sister Hoodie, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Sweatshirts</span><h3>Wrestling Sister Hoodie</h3><p>Team-spirit gear for the family cheering from the stands.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/onederful-bib.jpg" alt="Little Miss ONEderful Bib, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Gifts</span><h3>Little Miss ONEderful Bib</h3><p>Glitter lettering for a first-birthday photo or smash cake.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/acceptance-heart-tee.jpg" alt="Acceptance Heart Tee, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Shirts</span><h3>Acceptance Heart Tee</h3><p>An awareness design with a puzzle-piece heart, in adult and kid sizes.</p></figcaption>
+    </figure>
+    <figure class="work-card">
+      <img src="images/grumpa-tee.jpg" alt="Grumpa Tee, custom made by Harmonic Moments Crafts" loading="lazy" width="800" height="800">
+      <figcaption><span class="work-tag">Shirts</span><h3>Grumpa Tee</h3><p>A dictionary-style gift shirt for the grandpa who has everything.</p></figcaption>
+    </figure>
   </div>
   <div class="ig-strip">
     <p><strong>See Sam's latest work on Instagram.</strong> New pieces get posted there first.</p>
