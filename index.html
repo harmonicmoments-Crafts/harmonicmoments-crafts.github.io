@@ -143,6 +143,21 @@
   .deal-btn { margin-top: auto; display: block; text-align: center; padding: 0.7rem 1rem; border-radius: 50px; font-weight: 700; font-size: 0.9rem; text-decoration: none; background: linear-gradient(90deg, var(--orange), var(--yellow)); color: var(--dark); transition: transform 0.2s, box-shadow 0.2s; }
   .deal-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(249,115,22,0.35); }
   .deal-btn.soon { background: rgba(255,255,255,0.06); color: var(--muted); border: 1px dashed rgba(124,58,237,0.4); pointer-events: none; }
+  /* TEACHER SPOTLIGHT */
+  .teacher-spot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; padding: 1.25rem 1.5rem; border-radius: 16px; background: linear-gradient(120deg, rgba(220,38,38,0.22), rgba(251,191,36,0.14)); border: 1px solid rgba(248,113,113,0.55); box-shadow: 0 0 0 1px rgba(248,113,113,0.15), 0 12px 30px rgba(220,38,38,0.15); }
+  .teacher-spot .ts-text { display: flex; align-items: center; gap: 0.9rem; }
+  .teacher-spot .ts-icon { font-size: 2.2rem; line-height: 1; }
+  .teacher-spot h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.2rem; }
+  .teacher-spot p { color: var(--muted); font-size: 0.9rem; line-height: 1.5; max-width: 560px; }
+  .teacher-spot button { border: none; cursor: pointer; font: inherit; font-weight: 700; padding: 0.7rem 1.4rem; border-radius: 50px; color: white; background: linear-gradient(90deg, #DC2626, #F97316); white-space: nowrap; transition: transform 0.2s, box-shadow 0.2s; }
+  .teacher-spot button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(220,38,38,0.35); }
+  .deal-filter.teacher { border-color: rgba(248,113,113,0.7); color: #FCA5A5; }
+  .deal-filter.teacher.active { background: linear-gradient(90deg, #DC2626, #F97316); color: white; }
+  .deal-card.featured { border: 1.5px solid rgba(248,113,113,0.7); box-shadow: 0 0 0 1px rgba(248,113,113,0.12), 0 14px 32px rgba(220,38,38,0.18); }
+  .deal-card.featured .deal-media { background: linear-gradient(135deg, rgba(220,38,38,0.4), rgba(251,191,36,0.3)); }
+  .deal-card.featured .deal-tag { color: #FCA5A5; }
+  .deal-card.featured .deal-badge { background: linear-gradient(90deg, #DC2626, #F97316); color: white; }
+  .deal-btn.maker { background: linear-gradient(90deg, var(--purple), var(--pink)); color: white; }
   .deals-note { background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.3); border-radius: 12px; padding: 1rem 1.25rem; color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
   .deals-note strong { color: var(--text); }
 
@@ -321,7 +336,12 @@
       <h2 class="section-title">Amazing Amazon Deals for the Season and More</h2>
       <p class="section-sub">We do the scrolling so you don't have to. Every pick here is something we'd happily bring home ourselves, backed by what real customers keep raving about in their reviews. As the seasons change, so does this list, along with our personal top picks in tech, home improvement, and more. Check back often for our latest favorites.</p>
     </div>
-    <div class="season-pill" id="seasonPill">🍂 Fall Favorites</div>
+    <div class="season-pill" id="seasonPill">🎁 Holiday Gift Guide</div>
+  </div>
+
+  <div class="teacher-spot" role="region" aria-label="Teacher gift spotlight">
+    <div class="ts-text"><span class="ts-icon" aria-hidden="true">🍎</span><div><h3>Teacher Gift Spotlight</h3><p>Holiday thank-yous teachers actually use, plus custom mugs and gift sets handmade by Sam. Order custom teacher gifts by mid-December.</p></div></div>
+    <button type="button" id="teacherJump">Shop Teacher Gifts →</button>
   </div>
 
   <div class="deal-filters" id="dealFilters" role="group" aria-label="Filter deals"></div>
@@ -382,25 +402,33 @@
        badge    optional highlight pill, e.g. "⚡ Energy Saver"
        link     your Amazon affiliate link; leave "" and the card shows "Coming soon"
      ========================================================= */
-  const SEASON = "🍂 Fall Favorites";
+  const SEASON = "🎁 Holiday Gift Guide";
 
   const DEALS = [
-    { title: "Fall Comforter Set (Queen, 7-Piece)", category: "Home", blurb: "Warm terracotta tones with comforter, sheets, and shams in one bag. A quick fall refresh for the bedroom.", emoji: "🛏️", image: "", link: "https://www.amazon.com/dp/B0D5R56GCQ?tag=08132203-20" },
-    { title: "Joomer Orange & Purple Halloween Lights", category: "Seasonal", blurb: "100 feet of orange and purple LEDs with multiple modes. Wraps a porch, bushes, or a whole railing.", emoji: "🎃", image: "", link: "https://www.amazon.com/dp/B08XX3R4VM?tag=08132203-20" },
-    { title: "Halloween Coffee Mug", category: "Kitchen", blurb: "Big 20 oz orange mug with black cats and ghosts. Fun for spooky season and a reviewer favorite.", emoji: "☕", image: "", link: "https://www.amazon.com/dp/B0GYXXNKDN?tag=08132203-20" },
-    { title: "Crock-Pot 7-Quart Slow Cooker", category: "Kitchen", blurb: "Simple dials, feeds a crowd, and a longtime reviewer favorite. Soup and chili season is here.", emoji: "🍲", image: "", link: "https://www.amazon.com/dp/B003OAJGJO?tag=08132203-20" },
-    { title: "Anker MagGo 3-in-1 Charging Station", category: "Tech", blurb: "Charges iPhone, Apple Watch, and AirPods in one spot. Folds up for travel.", emoji: "🔌", image: "", link: "https://www.amazon.com/dp/B0DDQ71B9P?tag=08132203-20" },
-    { title: "Samsung Galaxy Buds 4 Pro", category: "Tech", blurb: "Samsung's newest Pro earbuds with strong noise canceling and Galaxy AI features. Best match for Galaxy phones.", emoji: "🎧", image: "", link: "https://www.amazon.com/dp/B0G1PJLWLZ?tag=08132203-20" },
-    { title: "EGO Power+ 650 CFM Leaf Blower", category: "Home Improvement", blurb: "Cordless power that keeps up with gas, battery and charger included. Built for fall cleanup.", emoji: "🍂", image: "", link: "https://www.amazon.com/dp/B087RRLLQ3?tag=08132203-20" },
-    { title: "Duck Window Insulation Kit (10 Windows)", category: "Home Improvement", badge: "⚡ Energy Saver", blurb: "Clear shrink film that seals drafty windows for winter. Blocks cold air and helps lower heating bills, then peels off in spring.", emoji: "🪟", image: "", link: "https://www.amazon.com/dp/B09JM8DCYL?tag=08132203-20" },
-    { title: "Ring Battery Doorbell 2K", category: "Home Improvement", blurb: "Newest Ring model with sharper 2K video. No wiring needed, an easy weekend install.", emoji: "🔔", image: "", link: "https://www.amazon.com/dp/B0FHJ7TKZM?tag=08132203-20" },
-    { title: "Aoretic LED Garage Lights (2-Pack)", category: "Home Improvement", blurb: "Screws into a standard bulb socket and turns a dim garage or shed into a workspace.", emoji: "💡", image: "", link: "https://www.amazon.com/dp/B0HCK7VGQ5?tag=08132203-20" },
+    { title: "Custom Teacher Mugs & Gift Sets", category: "Teacher Gifts", featured: true, badge: "🎨 Handmade by Sam", blurb: "Personalized mugs, tumblers, and gift sets with the teacher's name or a class inside joke. Send an inquiry and Sam will follow up with a quote.", emoji: "🍎", image: "site-update/images/tiny-human-tamer-mug.jpg", link: "https://docs.google.com/forms/d/e/1FAIpQLSdo_qCX8o9nQDsUrPHPna_soUR6v6itgiQK5dVqYd1dkJic7w/viewform", cta: "Order from Sam →", internal: true },
+    { title: "Ember Mug 2 (10 oz)", category: "Teacher Gifts", featured: true, badge: "🍎 Teacher Favorite", blurb: "Keeps coffee hot through first period and beyond. The splurge gift teachers rave about.", emoji: "☕", image: "", link: "https://www.amazon.com/dp/B07NQPYGYD?tag=08132203-20" },
+    { title: "Paper Mate Flair Pens (24 Pack)", category: "Teacher Gifts", featured: true, badge: "🍎 Teacher Favorite", blurb: "The colorful grading pens teachers stock up on. Practical, colorful, and always used up.", emoji: "🖊️", image: "", link: "https://www.amazon.com/dp/B01HAREUK6?tag=08132203-20" },
+    { title: "Lindt Lindor Assorted Truffles", category: "Teacher Gifts", featured: true, badge: "🍎 Teacher Favorite", blurb: "A 15 oz bag of assorted truffles. Pair it with a handwritten card for an easy, crowd-pleasing thank-you.", emoji: "🍫", image: "", link: "https://www.amazon.com/dp/B00UXI3PEM?tag=08132203-20" },
+    { title: "More Teacher Gift Ideas", category: "Teacher Gifts", featured: true, blurb: "Small, useful holiday thank-yous teachers actually want.", emoji: "🎁", image: "", link: "https://www.amazon.com/s?k=teacher+appreciation+gifts?tag=08132203-20" },
+    { title: "Anker MagGo 3-in-1 Charging Station", category: "For Him", blurb: "Charges iPhone, Apple Watch, and AirPods in one spot. Folds flat for travel.", emoji: "🔌", image: "", link: "https://www.amazon.com/dp/B0DDQ71B9P?tag=08132203-20" },
+    { title: "Samsung Galaxy Buds 4 Pro", category: "For Him", blurb: "Samsung's newest Pro earbuds with strong noise canceling. Best match for Galaxy phones.", emoji: "🎧", image: "", link: "https://www.amazon.com/dp/B0G1PJLWLZ?tag=08132203-20" },
+    { title: "Apple AirTag 4-Pack (2nd Gen)", category: "For Him", blurb: "Clip to keys, wallet, and bags and find them in the Find My app. An easy gift for the one who's always losing things.", emoji: "📍", image: "", link: "https://www.amazon.com/dp/B0GJTXVN9Z?tag=08132203-20" },
+    { title: "Stanley Quencher H2.0 Tumbler", category: "For Her", blurb: "The tumbler everyone asks for. Keeps drinks cold for hours, fits most cup holders, and has 200,000+ reviews.", emoji: "🥤", image: "", link: "https://www.amazon.com/dp/B0CP9YB3Q4?tag=08132203-20" },
+    { title: "Kindle Paperwhite (16GB)", category: "For Her", blurb: "Glare-free 7 inch screen and weeks of battery. Holds thousands of books for cozy winter reading.", emoji: "📖", image: "", link: "https://www.amazon.com/dp/B0CFPJYX7P?tag=08132203-20" },
+    { title: "Ninja AF101 Air Fryer (4 Qt)", category: "For the Home", blurb: "Crisps, roasts, reheats, and dehydrates with dishwasher-safe parts. A reviewer favorite and a gift people actually use.", emoji: "🍟", image: "", link: "https://www.amazon.com/dp/B07FDJMC9Q?tag=08132203-20" },
+    { title: "Crock-Pot 7-Quart Slow Cooker", category: "For the Home", blurb: "Simple dials, feeds a crowd, and a longtime reviewer favorite for holiday meals.", emoji: "🍲", image: "", link: "https://www.amazon.com/dp/B003OAJGJO?tag=08132203-20" },
+    { title: "Bedsure Sherpa Fleece Throw", category: "For the Home", blurb: "Thick, soft, and warm for movie nights on the couch. Comes in lots of colors and makes an easy gift.", emoji: "🛋️", image: "", link: "https://www.amazon.com/dp/B0158EQJSY?tag=08132203-20" },
+    { title: "Duck Window Insulation Kit (10 Windows)", category: "For the Home", badge: "⚡ Energy Saver", blurb: "Clear shrink film that seals drafty windows for winter. Blocks cold air and helps lower heating bills, then peels off in spring.", emoji: "🪟", image: "", link: "https://www.amazon.com/dp/B09JM8DCYL?tag=08132203-20" },
+    { title: "Ring Battery Doorbell 2K", category: "For the Home", blurb: "Newest Ring model with sharper 2K video. No wiring needed, an easy gift and an easy weekend install.", emoji: "🔔", image: "", link: "https://www.amazon.com/dp/B0FHJ7TKZM?tag=08132203-20" },
+    { title: "Aoretic LED Garage Lights (2-Pack)", category: "For the Home", blurb: "Screws into a standard bulb socket and turns a dim garage or shed into a workspace.", emoji: "💡", image: "", link: "https://www.amazon.com/dp/B0HCK7VGQ5?tag=08132203-20" },
+    { title: "LEGO Classic Large Creative Brick Box", category: "Kids", blurb: "790 colorful bricks for open-ended building. A gift that gets pulled out again and again.", emoji: "🧱", image: "", link: "https://www.amazon.com/dp/B00NHQF6MG?tag=08132203-20" },
+    { title: "Crayola Inspiration Art Case (140 pc)", category: "Kids", blurb: "Crayons, markers, pencils, and paper in one carry case. Keeps kids busy through the long winter break.", emoji: "🖍️", image: "", link: "https://www.amazon.com/dp/B00CI6J5JQ?tag=08132203-20" },
+    { title: "Carhartt Iconic Watch Cap Beanie", category: "Stocking Stuffers", blurb: "The classic warm knit beanie with 175,000+ reviews. Fits almost anyone and comes in dozens of colors.", emoji: "🧢", image: "", link: "https://www.amazon.com/dp/B002G9UDYG?tag=08132203-20" },
+    { title: "Burt's Bees Tips and Toes Kit", category: "Stocking Stuffers", blurb: "Six travel-size lip, hand, and foot care products in a gift-ready box.", emoji: "🐝", image: "", link: "https://www.amazon.com/dp/B0DSQNRZLL?tag=08132203-20" },
+    { title: "Snow MOOver Extendable Snow Brush", category: "Stocking Stuffers", blurb: "Extends to 39 inches with a squeegee and ice scraper. A practical stocking stuffer for New England winters.", emoji: "❄️", image: "", link: "https://www.amazon.com/dp/B076PVN38H?tag=08132203-20" },
+    { title: "More Gifts Under $30", category: "Stocking Stuffers", blurb: "Well-reviewed picks for coworkers, neighbors, and gift swaps that won't break the budget.", emoji: "🎁", image: "", link: "https://www.amazon.com/s?k=gifts+under+30&tag=08132203-20" },
     { title: "No-Drill Drywall TV Mount (22-55\")", category: "Our Picks", blurb: "Bought it, love it. Hangs a TV on drywall without hunting for studs or drilling big holes, perfect for renters and quick room setups.", emoji: "📺", image: "", link: "https://www.amazon.com/dp/B0BLCM73B1?tag=08132203-20" },
-    { title: "PREXISO 2-in-1 Stud Finder + Laser Level", category: "Our Picks", blurb: "Will's go-to for TV and shelf mounts. Finds the stud, then lasers a level line right on the wall. Rechargeable, and we use it every time something goes up.", emoji: "📐", image: "", link: "https://www.amazon.com/dp/B0DBQBWCFT?tag=08132203-20" },
-    { title: "Yankee Candle Spiced Pumpkin", category: "Seasonal", blurb: "22 oz large jar with a classic pumpkin and spice scent that makes the house feel like fall.", emoji: "🕯️", image: "", link: "https://www.amazon.com/dp/B0F3DRTCB2?tag=08132203-20" },
-    { title: "Halloween Costume Picks", category: "Seasonal", blurb: "Last-minute costumes for kids and adults, with fast shipping options.", emoji: "👻", image: "", link: "https://www.amazon.com/s?k=halloween+costumes&tag=08132203-20" },
-    { title: "Teacher Gift Ideas", category: "Gifts", blurb: "Small, useful thank-yous teachers actually want.", emoji: "🍎", image: "", link: "https://www.amazon.com/s?k=teacher+appreciation+gifts&tag=08132203-20" },
-    { title: "Holiday Gifts Under $30", category: "Gifts", blurb: "Get ahead of the rush with well-reviewed picks that won't break the budget.", emoji: "🎁", image: "", link: "https://www.amazon.com/s?k=gifts+under+30&tag=08132203-20" }
+    { title: "PREXISO 2-in-1 Stud Finder + Laser Level", category: "Our Picks", blurb: "Will's go-to for TV and shelf mounts. Finds the stud, then lasers a level line right on the wall. Rechargeable, and we use it every time something goes up.", emoji: "📐", image: "", link: "https://www.amazon.com/dp/B0DBQBWCFT?tag=08132203-20" }
   ];
 
   (function renderDeals() {
@@ -415,9 +443,11 @@
         ? `<img src="${esc(d.image)}" alt="${esc(d.title)}" loading="lazy">`
         : esc(d.emoji || '🛍️');
       const btn = d.link
-        ? `<a class="deal-btn" href="${esc(d.link)}" target="_blank" rel="sponsored nofollow noopener">View on Amazon →</a>`
+        ? (d.internal
+            ? `<a class="deal-btn maker" href="${esc(d.link)}" target="_blank" rel="noopener">${esc(d.cta || 'Learn more →')}</a>`
+            : `<a class="deal-btn" href="${esc(d.link)}" target="_blank" rel="sponsored nofollow noopener">View on Amazon →</a>`)
         : `<span class="deal-btn soon">Pick coming soon</span>`;
-      return `<article class="deal-card"><div class="deal-media"><span class="deal-tag">${esc(d.category)}</span>${d.badge ? `<span class="deal-badge">${esc(d.badge)}</span>` : ''}${media}</div>
+      return `<article class="deal-card${d.featured ? ' featured' : ''}"><div class="deal-media"><span class="deal-tag">${esc(d.category)}</span>${d.badge ? `<span class="deal-badge">${esc(d.badge)}</span>` : ''}${media}</div>
         <div class="deal-body"><h3>${esc(d.title)}</h3><p>${esc(d.blurb)}</p>${btn}</div></article>`;
     }
 
@@ -432,8 +462,10 @@
     }
 
     const cats = ['All', ...new Set(DEALS.map(d => d.category))];
-    filters.innerHTML = cats.map(c => `<button type="button" class="deal-filter" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+    filters.innerHTML = cats.map(c => `<button type="button" class="deal-filter${c === 'Teacher Gifts' ? ' teacher' : ''}" data-cat="${esc(c)}">${c === 'Teacher Gifts' ? '🍎 ' : ''}${esc(c)}</button>`).join('');
     filters.addEventListener('click', e => { const b = e.target.closest('.deal-filter'); if (b) show(b.dataset.cat); });
+    const tj = document.getElementById('teacherJump');
+    if (tj) tj.addEventListener('click', () => { show('Teacher Gifts'); filters.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     show('All');
   })();
 
