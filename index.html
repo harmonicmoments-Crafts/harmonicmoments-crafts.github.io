@@ -88,7 +88,8 @@
   @media (max-width: 520px) { .work-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; } .work-card figcaption { padding: 0.7rem; } .work-card p { display: none; } .work-card h3 { font-size: 0.92rem; } }
 
   /* MEET WILL BRIDGE */
-  .bridge { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; align-items: center; }
+  .bridge { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; align-items: start; }
+  .bridge-bio { padding-top: 1.9rem; }
   .bridge-bio p { color: var(--muted); line-height: 1.75; margin-bottom: 1rem; max-width: 560px; }
   .bridge-bio p strong { color: var(--text); }
   .bridge-sign { font-weight: 800; background: linear-gradient(90deg, var(--purple), var(--pink), var(--orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 1.1rem; }
@@ -100,6 +101,16 @@
   .bridge-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
   .bridge-card .bc-arrow { margin-left: auto; color: var(--pink); font-weight: 800; font-size: 1.2rem; }
   .bridge-plus { text-align: center; color: var(--yellow); font-weight: 900; font-size: 1.3rem; line-height: 1; }
+  .pair-samples { display: flex; flex-direction: column; gap: 0.9rem; }
+  .ps-head { font-weight: 800; color: var(--yellow); font-size: 0.95rem; letter-spacing: 0.5px; }
+  .ps-card { display: flex; gap: 1rem; align-items: center; background: var(--card-bg); border: 1px solid rgba(124,58,237,0.3); border-radius: 16px; padding: 0.8rem; }
+  .ps-card img { width: 92px; height: 92px; object-fit: cover; border-radius: 12px; background: #fff; flex: none; }
+  .ps-body { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
+  .ps-body h3 { font-size: 1rem; }
+  .ps-step { font-size: 0.85rem; color: var(--muted); text-decoration: none; line-height: 1.4; }
+  .ps-step span { color: #FCD34D; font-weight: 700; }
+  .ps-step.made span { color: #F9A8D4; }
+  .ps-step:hover { color: var(--text); }
   @media (max-width: 820px) { .bridge { grid-template-columns: 1fr; } }
 
   /* ORDER OPTIONS */
@@ -305,6 +316,7 @@
 <div class="section-wrap">
   <div class="section-label">✦ Pricing</div>
   <h2 class="section-title">Simple Pricing</h2>
+  <p class="section-sub">Every piece is made to order, just for you. Here's where prices start, and I'll send an exact quote once I know what you have in mind.</p>
   <div class="pricing-grid">
     <div class="price-card"><div class="price-icon">🧢</div><h3>Hats</h3><div class="from">Starting at</div><div class="amount">$20</div></div>
     <div class="price-card"><div class="price-icon">👕</div><h3>Shirts</h3><div class="from">Starting at</div><div class="amount">$25</div></div>
@@ -380,14 +392,36 @@
   <h2 class="section-title">One Family, Two Ways to Make Gifting Easier</h2>
   <div class="bridge">
     <div class="bridge-bio">
-      <p><strong>Hi, I'm Will.</strong> I've always been the tech guy in the family, the one people text before they buy anything. I also know what it's like to live on a budget, so <strong>helping people save money is my thing.</strong></p>
+      <p>Since the early '90s, before big tech, I was the one waiting by the mailbox for the <strong>Eastbay</strong> catalog to find the latest and best deals on sneakers. I've been the tech guy in the family ever since, the one people text before they buy anything. I also know what it's like to live on a budget, so <strong>helping people save money is my thing.</strong></p>
       <p>Samantha makes the one-of-a-kind gifts. I dig through the deals so you get the best value on everything else on your list. Every pick below is something I'd recommend to my own family.</p>
-      <div class="bridge-sign">Will, the deal finder at Harmonic Moments</div>
+      <div class="bridge-sign">Dive in and find some good buys. ~Will</div>
     </div>
-    <div class="bridge-cards">
-      <a class="bridge-card" href="#order"><span class="bc-icon" aria-hidden="true">🎨</span><div><h3>Handmade by Samantha</h3><p>Custom gifts for the moments that matter.</p></div><span class="bc-arrow" aria-hidden="true">→</span></a>
-      <div class="bridge-plus" aria-hidden="true">+</div>
-      <a class="bridge-card" href="#deals"><span class="bc-icon" aria-hidden="true">💸</span><div><h3>Picked by Will</h3><p>Smart buys that stretch your budget.</p></div><span class="bc-arrow" aria-hidden="true">→</span></a>
+    <div class="pair-samples">
+      <div class="ps-head">Find it below. Make it personal.</div>
+      <div class="ps-card">
+        <img src="site-update/images/dance-teacher-gift-set.jpg" alt="The Tumbler personalized by Samantha" loading="lazy">
+        <div class="ps-body">
+          <h3>The Tumbler</h3>
+          <a class="ps-step" href="#deals" data-cat="For Her"><span>💸 Found:</span> A tumbler from the picks below&nbsp;→</a>
+          <a class="ps-step made" href="#order"><span>🎨 Personalized:</span> Samantha adds the name, colors and design&nbsp;→</a>
+        </div>
+      </div>
+      <div class="ps-card">
+        <img src="site-update/images/tiny-human-tamer-mug.jpg" alt="The Coffee Mug personalized by Samantha" loading="lazy">
+        <div class="ps-body">
+          <h3>The Coffee Mug</h3>
+          <a class="ps-step" href="#deals" data-cat="Teacher Gifts"><span>💸 Found:</span> A teacher favorite from the picks below&nbsp;→</a>
+          <a class="ps-step made" href="#order"><span>🎨 Personalized:</span> Samantha makes the custom mug to go with it&nbsp;→</a>
+        </div>
+      </div>
+      <div class="ps-card">
+        <img src="site-update/images/holiday-mom-sweatshirt.jpg" alt="The Shirt personalized by Samantha" loading="lazy">
+        <div class="ps-body">
+          <h3>The Shirt</h3>
+          <a class="ps-step" href="#deals" data-cat="For the Home"><span>💸 Found:</span> A cozy gift for Mom from the picks below&nbsp;→</a>
+          <a class="ps-step made" href="#order"><span>🎨 Personalized:</span> Samantha makes the custom MOM sweatshirt&nbsp;→</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -402,7 +436,7 @@
     <div>
       <div class="section-label">✦ Seasonal Picks</div>
       <h2 class="section-title">Amazing Amazon Deals for the Season and More</h2>
-      <p class="section-sub">Wrapped with love, picked for the people who matter most, and made for the moments your family will remember. Every pick here is something we'd happily bring home ourselves, backed by what real customers keep raving about in their reviews. As the seasons change, so does this list, along with our personal top picks in tech, home improvement, and more. Check back often for our latest favorites.</p>
+      <p class="section-sub">Wrapped with love and picked for the people who matter most. Check back often, the list changes with the seasons.</p>
     </div>
     <div class="season-pill" id="seasonPill">🎁 Holiday Gift Guide</div>
   </div>
@@ -505,7 +539,7 @@
     const tj = document.getElementById('teacherJump');
     if (tj) tj.addEventListener('click', () => { show('Teacher Gifts'); filters.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     document.addEventListener('click', e => {
-      const a = e.target.closest('.work-pair[data-cat]');
+      const a = e.target.closest('.work-pair[data-cat], .ps-step[data-cat]');
       if (!a) return;
       e.preventDefault();
       show(a.dataset.cat);
