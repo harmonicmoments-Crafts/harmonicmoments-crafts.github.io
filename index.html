@@ -701,11 +701,13 @@
     msgW.append(msgL, msg);
     const actions = el('div', 'pj-actions');
     const copyBtn = el('button', 'pj-primary', 'Copy my request'); copyBtn.type = 'button';
-    const gmail = el('a', 'pj-secondary', 'Open in Gmail'); gmail.target = '_blank'; gmail.rel = 'noopener';
-    const mail = el('a', 'pj-secondary', 'Open in email');
-    actions.append(copyBtn, gmail, mail);
+    /* One email button: phones and tablets open the mail app, computers open a Gmail draft in a new tab. */
+    const onPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent));
+    const mail = el('a', 'pj-secondary', 'Email my request');
+    if (!onPhone) { mail.target = '_blank'; mail.rel = 'noopener'; }
+    actions.append(copyBtn, mail);
     const mline = el('p', 'pj-mail');
-    mline.append(document.createTextNode('Send it to '), el('strong', '', P.email), document.createTextNode('. If the email buttons do nothing on your device, copy the request and paste it into a message.'));
+    mline.append(document.createTextNode('Send it to '), el('strong', '', P.email), document.createTextNode('. If the email button does not work on your device, copy the request and paste it into a message.'));
     c2.append(chips, hint, famW, pplW, ideaW, el('h4', '', '3. Send it to us'), msgW, actions, mline);
 
     body.append(c1, c2);
@@ -722,8 +724,9 @@
       lines.push('', 'Thank you!');
       msg.value = lines.join('\n');
       const su = encodeURIComponent(P.subject), bd = encodeURIComponent(msg.value);
-      mail.href = 'mailto:' + P.email + '?subject=' + su + '&body=' + bd;
-      gmail.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(P.email) + '&su=' + su + '&body=' + bd;
+      mail.href = onPhone
+        ? 'mailto:' + P.email + '?subject=' + su + '&body=' + bd
+        : 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(P.email) + '&su=' + su + '&body=' + bd;
     }
     copyBtn.addEventListener('click', () => {
       const done = () => { copyBtn.textContent = 'Copied'; setTimeout(() => { copyBtn.textContent = 'Copy my request'; }, 1800); };
